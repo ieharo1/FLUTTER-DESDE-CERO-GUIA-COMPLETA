@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aprende Apache Spark desde cero con nuestra guía completa. Tutoriales, ejemplos prácticos y ejercicios.">
+    <meta name="author" content="Isaac Esteban Haro Torres">
+    <title>⚡ Apache Spark Desde Cero - Guía Completa</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="logo">⚡ Apache Spark Desde Cero</a>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#temas">Temas</a></li>
+                    <li><a href="#contenido">Contenido</a></li>
+                    <li><a href="#ejemplos">Ejemplos</a></li>
+                    <li><a href="#recursos">Recursos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <h1>⚡ Apache Spark Desde Cero - Guía Completa</h1>
+                <p class="hero-subtitle">Aprende Spark desde los fundamentos hasta conceptos avanzados</p>
+                <blockquote class="hero-quote">
+                    "Apache Spark is a unified analytics engine for large-scale data processing."
+                </blockquote>
+                <a href="#temas" class="btn btn-primary">Explorar Temas</a>
+            </div>
+        </section>
+
+        <section id="temas" class="topics">
+            <div class="container">
+                <h2>📖 Temas del Curso</h2>
+                <p class="topics-intro">Haz clic en cualquier tema para ver el contenido detallado</p>
+
+                <div class="topics-grid">
+                    <!-- Módulo 1 -->
+                    <div class="topic-card" data-topic="topic1">
+                        <div class="topic-header">
+                            <span class="topic-icon">📌</span>
+                            <h3>Módulo 1: Fundamentos</h3>
+                        </div>
+                        <ul class="topic-list">
+                            <li><a href="#tema1-1">Introducción a Apache Spark</a></li>
+                            <li><a href="#tema1-2">Spark vs Hadoop MapReduce</a></li>
+                            <li><a href="#tema1-3">RDDs y conceptos básicos</a></li>
+                            <li><a href="#tema1-4">Transformaciones y acciones</a></li>
+                        </ul>
+                        <a href="#tema1-1" class="btn-topic">Ver tema →</a>
+                    </div>
+
+                    <!-- Módulo 2 -->
+                    <div class="topic-card" data-topic="topic2">
+                        <div class="topic-header">
+                            <span class="topic-icon">⚙️</span>
+                            <h3>Módulo 2: Intermedio</h3>
+                        </div>
+                        <ul class="topic-list">
+                            <li><a href="#tema2-1">DataFrames y Datasets</a></li>
+                            <li><a href="#tema2-2">Spark SQL</a></li>
+                            <li><a href="#tema2-3">Lectura/escritura de datos</a></li>
+                            <li><a href="#tema2-4">Optimización de queries</a></li>
+                        </ul>
+                        <a href="#tema2-1" class="btn-topic">Ver tema →</a>
+                    </div>
+
+                    <!-- Módulo 3 -->
+                    <div class="topic-card" data-topic="topic3">
+                        <div class="topic-header">
+                            <span class="topic-icon">🚀</span>
+                            <h3>Módulo 3: Avanzado</h3>
+                        </div>
+                        <ul class="topic-list">
+                            <li><a href="#tema3-1">Spark Streaming</a></li>
+                            <li><a href="#tema3-2">Structured Streaming</a></li>
+                            <li><a href="#tema3-3">MLlib (Machine Learning)</a></li>
+                            <li><a href="#tema3-4">GraphX</a></li>
+                        </ul>
+                        <a href="#tema3-1" class="btn-topic">Ver tema →</a>
+                    </div>
+                </div>
+
+                <!-- Contenido Detallado de Temas -->
+                <div class="topic-content" id="topic-content">
+                    <!-- Tema 1-1 -->
+                    <div class="content-detail" id="tema1-1">
+                        <h3>📌 Introducción a Apache Spark</h3>
+                        <div class="content-body">
+                            <p><strong>¿Qué es Apache Spark?</strong> Apache Spark es un motor de procesamiento de datos unificado de código abierto diseñado para el procesamiento de datos a gran escala. Fue desarrollado en la UC Berkeley's AMPLab en 2009 y donado a la Apache Software Foundation en 2013.</p>
+
+                            <h4>Características principales:</h4>
+                            <ul>
+                                <li><strong>Procesamiento en memoria:</strong> Spark procesa datos en RAM, lo que lo hace hasta 100 veces más rápido que Hadoop MapReduce para ciertas cargas de trabajo.</li>
+                                <li><strong>Procesamiento unificado:</strong> Soporta batch processing, streaming, machine learning y procesamiento de gráficos.</li>
+                                <li><strong>Fácil de usar:</strong> APIs de alto nivel en Java, Scala, Python y R.</li>
+                                <li><strong>Ejecución en múltiples entornos:</strong> Puede ejecutarse en standalone, Hadoop YARN, Mesos o Kubernetes.</li>
+                            </ul>
+
+                            <h4>Arquitectura de Spark:</h4>
+                            <p>Spark sigue una arquitectura maestro-esclavo con dos componentes principales:</p>
+                            <ul>
+                                <li><strong>Driver Program:</strong> Ejecuta el programa principal y crea el SparkContext.</li>
+                                <li><strong>Cluster Manager:</strong> Adquiere recursos y los asigna a las aplicaciones.</li>
+                                <li><strong>Worker Nodes:</strong> Ejecutan las tareas asignadas.</li>
+                                <li><strong>Executors:</strong> Procesos que ejecutan tareas y almacenan datos.</li>
+                            </ul>
+
+                            <div class="info-box">
+                                <strong>💡 Dato curioso:</strong> Spark fue creado por Matei Zaharia como su proyecto de PhD en UC Berkeley. Hoy es uno de los proyectos de big data más activos de Apache.
+                            </div>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+
+                    <!-- Tema 1-2 -->
+                    <div class="content-detail" id="tema1-2">
+                        <h3>⚖️ Spark vs Hadoop MapReduce</h3>
+                        <div class="content-body">
+                            <h4>Comparativa de rendimiento:</h4>
+                            <table class="info-table">
+                                <tr>
+                                    <th>Característica</th>
+                                    <th>Apache Spark</th>
+                                    <th>Hadoop MapReduce</th>
+                                </tr>
+                                <tr>
+                                    <td>Velocidad</td>
+                                    <td>100x más rápido en memoria</td>
+                                    <td>Procesamiento en disco</td>
+                                </tr>
+                                <tr>
+                                    <td>Facilidad de uso</td>
+                                    <td>APIs de alto nivel</td>
+                                    <td>Programación Java compleja</td>
+                                </tr>
+                                <tr>
+                                    <td>Procesamiento</td>
+                                    <td>Batch + Streaming</td>
+                                    <td>Solo Batch</td>
+                                </tr>
+                                <tr>
+                                    <td>Iteraciones</td>
+                                    <td>Excelente (datos en memoria)</td>
+                                    <td>Lento (lee/escribe en disco)</td>
+                                </tr>
+                            </table>
+
+                            <h4>Cuándo usar Spark:</h4>
+                            <ul>
+                                <li>Procesamiento iterativo (machine learning, algoritmos gráficos)</li>
+                                <li>Streaming en tiempo real</li>
+                                <li>Consultas interactivas</li>
+                                <li>Pipelines complejos de ETL</li>
+                            </ul>
+
+                            <h4>Cuándo usar MapReduce:</h4>
+                            <ul>
+                                <li>Procesamiento por lotes de gran volumen</li>
+                                <li>Cuando el costo es prioritario sobre la velocidad</li>
+                                <li>Trabajos que no requieren iteración</li>
+                            </ul>
+
+                            <div class="info-box">
+                                <strong>⚠️ Importante:</strong> Spark no reemplaza a Hadoop completamente. Spark puede usar HDFS como sistema de almacenamiento y YARN como cluster manager.
+                            </div>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+
+                    <!-- Tema 1-3 -->
+                    <div class="content-detail" id="tema1-3">
+                        <h3>📊 RDDs y Conceptos Básicos</h3>
+                        <div class="content-body">
+                            <h4>¿Qué es un RDD?</h4>
+                            <p>Un RDD (Resilient Distributed Dataset) es la estructura de datos fundamental de Spark. Es una colección distribuida de objetos que puede ser procesada en paralelo.</p>
+
+                            <h4>Características de los RDDs:</h4>
+                            <ul>
+                                <li><strong>Resiliente:</strong> Tolera fallos mediante lineage (linaje de transformaciones).</li>
+                                <li><strong>Distribuido:</strong> Los datos están particionados a través del cluster.</li>
+                                <li><strong>Inmutable:</strong> Una vez creado, no puede modificarse, solo transformarse.</li>
+                            </ul>
+
+                            <h4>Creación de RDDs:</h4>
+                            <pre><code class="language-python"># Desde una colección
+rdd = sc.parallelize([1, 2, 3, 4, 5])
+
+# Desde un archivo
+rdd = sc.textFile("datos.txt")
+
+# Desde otro RDD
+rdd2 = rdd1.map(lambda x: x * 2)</code></pre>
+
+                            <h4>Particionamiento:</h4>
+                            <p>Los RDDs están divididos en particiones que se distribuyen en el cluster. El número de particiones afecta el paralelismo:</p>
+                            <pre><code class="language-python"># RDD con 4 particiones
+rdd = sc.parallelize(range(1000), numSlices=4)
+
+# Ver número de particiones
+print(rdd.getNumPartitions())</code></pre>
+
+                            <div class="info-box">
+                                <strong>💡 Tip:</strong> Un buen número de particiones es 2-4 veces el número de cores disponibles en el cluster.
+                            </div>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+
+                    <!-- Tema 1-4 -->
+                    <div class="content-detail" id="tema1-4">
+                        <h3>🔄 Transformaciones y Acciones</h3>
+                        <div class="content-body">
+                            <h4>Transformaciones (Lazy):</h4>
+                            <p>Las transformaciones crean un nuevo RDD a partir de uno existente. Son operaciones lazy que no se ejecutan hasta que se llama a una acción.</p>
+
+                            <pre><code class="language-python"># Transformaciones comunes
+rdd = sc.parallelize([1, 2, 3, 4, 5])
+
+# map: aplica una función a cada elemento
+mapped = rdd.map(lambda x: x * 2)
+
+# filter: filtra elementos
+filtered = rdd.filter(lambda x: x > 2)
+
+# flatMap: similar a map pero aplana resultados
+flatMapped = rdd.flatMap(lambda x: [x, x*2])
+
+# distinct: elimina duplicados
+distinct = rdd.distinct()
+
+# union: combina dos RDDs
+union = rdd1.union(rdd2)
+
+# intersection: elementos comunes
+intersection = rdd1.intersection(rdd2)
+
+# subtract: elementos únicos del primero
+subtract = rdd1.subtract(rdd2)
+
+# join: une por clave
+joined = rdd1.join(rdd2)</code></pre>
+
+                            <h4>Acciones (Eager):</h4>
+                            <p>Las acciones devuelven un valor al programa driver después de ejecutar un cálculo sobre el RDD.</p>
+
+                            <pre><code class="language-python"># Acciones comunes
+count = rdd.count()           # Cuenta elementos
+first = rdd.first()           # Primer elemento
+collect = rdd.collect()       # Todos los elementos
+reduce = rdd.reduce(lambda a, b: a + b)  # Reduce
+take = rdd.take(5)            # Primeros N elementos
+top = rdd.top(5)              # Top N elementos
+countByValue = rdd.countByValue()  # Cuenta por valor</code></pre>
+
+                            <div class="info-box">
+                                <strong>💡 Tip:</strong> Las transformaciones son lazy (perezosas). No se ejecutan hasta que se llama a una acción. Esto permite a Spark optimizar el plan de ejecución.
+                            </div>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+
+                    <!-- Tema 2-1 -->
+                    <div class="content-detail" id="tema2-1">
+                        <h3>📋 DataFrames y Datasets</h3>
+                        <div class="content-body">
+                            <h4>DataFrames:</h4>
+                            <p>Un DataFrame es una distribución organizada de datos en columnas nombradas. Es conceptualmente equivalente a una tabla en una base de datos relacional.</p>
+
+                            <pre><code class="language-python">from pyspark.sql import SparkSession
+from pyspark.sql.types import StructType, StructField, StringType, IntegerType
+
+spark = SparkSession.builder.appName("DataFrames").getOrCreate()
+
+# Crear DataFrame desde CSV
+df = spark.read.csv("usuarios.csv", header=True, inferSchema=True)
+
+# Crear DataFrame desde lista de datos
+datos = [("Juan", 25, "Madrid"), ("Ana", 30, "Barcelona")]
+schema = StructType([
+    StructField("nombre", StringType(), True),
+    StructField("edad", IntegerType(), True),
+    StructField("ciudad", StringType(), True)
+])
+df = spark.createDataFrame(datos, schema)
+
+# Mostrar datos
+df.show()
+df.printSchema()
+df.describe().show()</code></pre>
+
+                            <h4>Operaciones comunes:</h4>
+                            <pre><code class="language-python"># Selección de columnas
+df.select("nombre", "edad").show()
+
+# Filtrado
+df.filter(df.edad > 25).show()
+df.where("ciudad = 'Madrid'").show()
+
+# Agregaciones
+df.groupBy("ciudad").count().show()
+df.agg({"edad": "avg", "nombre": "count"}).show()
+
+# Ordenamiento
+df.orderBy(df.edad.desc()).show()
+
+# Unir DataFrames
+df_join = df1.join(df2, df1.id == df2.id, "inner")</code></pre>
+
+                            <h4>Datasets:</h4>
+                            <p>Los Datasets son una extensión de los DataFrames que proporcionan type-safety. Solo disponibles en Scala y Java.</p>
+
+                            <div class="info-box">
+                                <strong>💡 Tip:</strong> Los DataFrames son más eficientes que los RDDs porque Spark puede optimizar el plan de ejecución usando Catalyst Optimizer.
+                            </div>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+
+                    <!-- Tema 2-2 -->
+                    <div class="content-detail" id="tema2-2">
+                        <h3>💾 Spark SQL</h3>
+                        <div class="content-body">
+                            <h4>¿Qué es Spark SQL?</h4>
+                            <p>Spark SQL es un módulo de Spark para procesamiento de datos estructurados. Permite ejecutar consultas SQL sobre DataFrames y RDDs.</p>
+
+                            <h4>Registro de tablas temporales:</h4>
+                            <pre><code class="language-python"># Registrar como vista temporal
+df.createOrReplaceTempView("usuarios")
+
+# Registrar como vista global (disponible en todas las sesiones)
+df.createGlobalTempView("usuarios_global")
+
+# Ejecutar consultas SQL
+resultado = spark.sql("""
+    SELECT ciudad, AVG(edad) as edad_promedio, COUNT(*) as total
+    FROM usuarios
+    WHERE edad > 18
+    GROUP BY ciudad
+    HAVING COUNT(*) > 1
+    ORDER BY edad_promedio DESC
+""")
+
+resultado.show()</code></pre>
+
+                            <h4>Funciones SQL comunes:</h4>
+                            <pre><code class="language-python">from pyspark.sql.functions import col, sum, avg, count, when, max, min
+
+# Funciones de agregación
+df.groupBy("ciudad").agg(
+    sum("salario").alias("total_salarios"),
+    avg("edad").alias("edad_promedio"),
+    count("*").alias("total_usuarios")
+).show()
+
+# Expresiones condicionales
+df.withColumn(
+    "categoria",
+    when(col("edad") < 30, "Joven")
+    .when(col("edad") < 50, "Adulto")
+    .otherwise("Mayor")
+).show()
+
+# Funciones de ventana
+from pyspark.sql.window import Window
+from pyspark.sql.functions import row_number, rank
+
+window = Window.partitionBy("ciudad").orderBy(col("salario").desc())
+df.withColumn("rank", rank().over(window)).show()</code></pre>
+
+                            <h4>Lectura de múltiples formatos:</h4>
+                            <pre><code class="language-python"># JSON
+df_json = spark.read.json("datos.json")
+
+# Parquet
+df_parquet = spark.read.parquet("datos.parquet")
+
+# JDBC (Base de datos)
+df_jdbc = spark.read.jdbc(
+    url="jdbc:postgresql://localhost:5432/mydb",
+    table="usuarios",
+    properties={"user": "usuario", "password": "clave"}
+)</code></pre>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+
+                    <!-- Tema 2-3 -->
+                    <div class="content-detail" id="tema2-3">
+                        <h3>📂 Lectura/Escritura de Datos</h3>
+                        <div class="content-body">
+                            <h4>Lectura de datos:</h4>
+                            <pre><code class="language-python"># CSV con opciones
+df = spark.read \
+    .option("header", "true") \
+    .option("inferSchema", "true") \
+    .option("delimiter", ",") \
+    .option("encoding", "UTF-8") \
+    .csv("datos.csv")
+
+# JSON
+df = spark.read.json("datos.json", multiLine=True)
+
+# Parquet (formato columnar eficiente)
+df = spark.read.parquet("datos.parquet")
+
+# ORC
+df = spark.read.orc("datos.orc")
+
+# Avro
+df = spark.read.format("avro").load("datos.avro")</code></pre>
+
+                            <h4>Escritura de datos:</h4>
+                            <pre><code class="language-python"># Guardar como CSV
+df.write \
+    .option("header", "true") \
+    .option("delimiter", ",") \
+    .mode("overwrite") \
+    .csv("output/datos.csv")
+
+# Guardar como Parquet
+df.write \
+    .mode("overwrite") \
+    .parquet("output/datos.parquet")
+
+# Guardar en tabla Hive
+df.write \
+    .mode("overwrite") \
+    .saveAsTable("mi_base.usuarios")
+
+# Particionamiento
+df.write \
+    .partitionBy("ciudad", "anio") \
+    .mode("overwrite") \
+    .parquet("output/particionado")</code></pre>
+
+                            <h4>Modos de escritura:</h4>
+                            <table class="info-table">
+                                <tr>
+                                    <th>Modo</th>
+                                    <th>Descripción</th>
+                                </tr>
+                                <tr>
+                                    <td>append</td>
+                                    <td>Añade datos existentes</td>
+                                </tr>
+                                <tr>
+                                    <td>overwrite</td>
+                                    <td>Sobrescribe datos existentes</td>
+                                </tr>
+                                <tr>
+                                    <td>ignore</td>
+                                    <td>Ignora si existen datos</td>
+                                </tr>
+                                <tr>
+                                    <td>errorifexists</td>
+                                    <td>Lanza error si existen datos</td>
+                                </tr>
+                            </table>
+
+                            <div class="info-box">
+                                <strong>💡 Tip:</strong> Parquet es el formato recomendado para producción. Es columnar, eficiente en almacenamiento y compatible con muchas herramientas.
+                            </div>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+
+                    <!-- Tema 2-4 -->
+                    <div class="content-detail" id="tema2-4">
+                        <h3>⚡ Optimización de Queries</h3>
+                        <div class="content-body">
+                            <h4>Catalyst Optimizer:</h4>
+                            <p>Catalyst es el optimizador de consultas de Spark SQL. Aplica reglas de optimización y genera un plan de ejecución eficiente.</p>
+
+                            <h4>Técnicas de optimización:</h4>
+                            <ul>
+                                <li><strong>Column Pruning:</strong> Solo lee columnas necesarias.</li>
+                                <li><strong>Predicate Pushdown:</strong> Filtra datos lo antes posible.</li>
+                                <li><strong>Constant Folding:</strong> Evalúa expresiones constantes en tiempo de compilación.</li>
+                                <li><strong>Code Generation:</strong> Genera código Java bytecode optimizado.</li>
+                            </ul>
+
+                            <pre><code class="language-python"># Ver plan de ejecución
+df.explain()
+df.explain(mode="extended")
+
+# Plan optimizado
+df.explain(mode="cost")
+
+# Cache de DataFrames
+df.cache()
+df.persist()  # Con nivel de almacenamiento
+
+# Broadcast join para tablas pequeñas
+from pyspark.sql.functions import broadcast
+df_grande.join(broadcast(df_pequeño), "id")
+
+# Repartitioning para balancear carga
+df_reparticionado = df.repartition(100, "ciudad")
+df_coalescido = df.coalesce(10)  # Reduce particiones sin shuffle</code></pre>
+
+                            <h4>Configuraciones de optimización:</h4>
+                            <table class="info-table">
+                                <tr>
+                                    <th>Configuración</th>
+                                    <th>Valor recomendado</th>
+                                </tr>
+                                <tr>
+                                    <td>spark.sql.shuffle.partitions</td>
+                                    <td>200-1000 (según datos)</td>
+                                </tr>
+                                <tr>
+                                    <td>spark.sql.autoBroadcastJoinThreshold</td>
+                                    <td>10MB-100MB</td>
+                                </tr>
+                                <tr>
+                                    <td>spark.sql.adaptive.enabled</td>
+                                    <td>true (Spark 3.0+)</td>
+                                </tr>
+                            </table>
+
+                            <div class="info-box">
+                                <strong>💡 Tip:</strong> Usa spark.sql.adaptive.enabled=true en Spark 3.0+ para optimización adaptativa automática.
+                            </div>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+
+                    <!-- Tema 3-1 -->
+                    <div class="content-detail" id="tema3-1">
+                        <h3>🔄 Spark Streaming</h3>
+                        <div class="content-body">
+                            <h4>¿Qué es Spark Streaming?</h4>
+                            <p>Spark Streaming es una extensión de Spark para procesamiento de datos en tiempo real. Divide el stream en micro-batches que son procesados por el engine de Spark.</p>
+
+                            <h4>Configuración básica:</h4>
+                            <pre><code class="language-python">from pyspark.streaming import StreamingContext
+from pyspark import SparkContext
+
+# Crear StreamingContext (batch de 5 segundos)
+sc = SparkContext("local[2]", "StreamingApp")
+ssc = StreamingContext(sc, 5)
+
+# Leer desde socket
+lines = ssc.socketTextStream("localhost", 9999)
+
+# Procesar
+words = lines.flatMap(lambda line: line.split(" "))
+word_counts = words.map(lambda word: (word, 1)).reduceByKey(lambda a, b: a + b)
+
+# Imprimir resultados
+word_counts.pprint()
+
+# Iniciar streaming
+ssc.start()
+ssc.awaitTermination()</code></pre>
+
+                            <h4>DStreams (Discretized Streams):</h4>
+                            <pre><code class="language-python"># Operaciones en DStreams
+# Transformaciones stateless
+dstream.map(func)
+dstream.filter(func)
+dstream.flatMap(func)
+dstream.reduceByKey(func)
+
+# Transformaciones stateful
+dstream.updateStateByKey(func)
+dstream.window(windowLength, slideInterval)
+dstream.reduceByKeyAndWindow(func, windowLength, slideInterval)</code></pre>
+
+                            <h4>Fuentes de datos:</h4>
+                            <ul>
+                                <li>Sockets TCP</li>
+                                <li>Archivos en sistema de archivos</li>
+                                <li>Kafka</li>
+                                <li>Flume</li>
+                                <li>Kinesis</li>
+                            </ul>
+
+                            <div class="info-box">
+                                <strong>💡 Tip:</strong> Spark Streaming usa micro-batching. Para latencia muy baja, considera Structured Streaming con modo continuous.
+                            </div>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+
+                    <!-- Tema 3-2 -->
+                    <div class="content-detail" id="tema3-2">
+                        <h3>🌊 Structured Streaming</h3>
+                        <div class="content-body">
+                            <h4>¿Qué es Structured Streaming?</h4>
+                            <p>Structured Streaming es el nuevo API de streaming de Spark basado en el engine de Spark SQL. Trata el stream como una tabla infinita que se actualiza continuamente.</p>
+
+                            <h4>Ejemplo básico:</h4>
+                            <pre><code class="language-python">from pyspark.sql import SparkSession
+from pyspark.sql.functions import split, explode, count
+
+spark = SparkSession.builder \
+    .appName("StructuredStreaming") \
+    .getOrCreate()
+
+# Leer stream
+lines = spark.readStream \
+    .format("socket") \
+    .option("host", "localhost") \
+    .option("port", 9999) \
+    .load()
+
+# Procesar
+words = lines.select(
+    explode(split(lines.value, " ")).alias("palabra")
+)
+
+# Contar palabras
+word_counts = words.groupBy("palabra").count()
+
+# Escribir stream
+query = word_counts.writeStream \
+    .outputMode("complete") \
+    .format("console") \
+    .option("truncate", "false") \
+    .start()
+
+query.awaitTermination()</code></pre>
+
+                            <h4>Modos de output:</h4>
+                            <table class="info-table">
+                                <tr>
+                                    <th>Modo</th>
+                                    <th>Descripción</th>
+                                </tr>
+                                <tr>
+                                    <td>Complete</td>
+                                    <td>Toda la tabla de resultados</td>
+                                </tr>
+                                <tr>
+                                    <td>Append</td>
+                                    <td>Solo filas nuevas</td>
+                                </tr>
+                                <tr>
+                                    <td>Update</td>
+                                    <td>Filas actualizadas</td>
+                                </tr>
+                            </table>
+
+                            <h4>Window operations:</h4>
+                            <pre><code class="language-python">from pyspark.sql.functions import window, col
+
+# Ventanas de tiempo
+df.groupBy(
+    window(col("timestamp"), "10 minutes", "5 minutes"),
+    col("categoria")
+).count()</code></pre>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+
+                    <!-- Tema 3-3 -->
+                    <div class="content-detail" id="tema3-3">
+                        <h3>🤖 MLlib (Machine Learning)</h3>
+                        <div class="content-body">
+                            <h4>¿Qué es MLlib?</h4>
+                            <p>MLlib es la biblioteca de machine learning escalable de Spark. Proporciona algoritmos comunes para clasificación, regresión, clustering y reducción de dimensionalidad.</p>
+
+                            <h4>Pipeline de ML:</h4>
+                            <pre><code class="language-python">from pyspark.ml import Pipeline
+from pyspark.ml.classification import LogisticRegression
+from pyspark.ml.feature import VectorAssembler, StringIndexer
+from pyspark.ml.evaluation import MulticlassClassificationEvaluator
+
+# Cargar datos
+df = spark.read.csv("datos.csv", header=True, inferSchema=True)
+
+# Preprocesamiento
+indexer = StringIndexer(inputCol="categoria", outputCol="label")
+assembler = VectorAssembler(
+    inputCols=["edad", "ingresos", "puntuacion"],
+    outputCol="features"
+)
+
+# Modelo
+lr = LogisticRegression(featuresCol="features", labelCol="label")
+
+# Pipeline
+pipeline = Pipeline(stages=[indexer, assembler, lr])
+
+# Entrenar
+modelo = pipeline.fit(df)
+
+# Predecir
+predicciones = modelo.transform(df)
+
+# Evaluar
+evaluator = MulticlassClassificationEvaluator(
+    labelCol="label",
+    predictionCol="prediction",
+    metricName="accuracy"
+)
+accuracy = evaluator.evaluate(predicciones)
+print(f"Precisión: {accuracy}")</code></pre>
+
+                            <h4>Algoritmos disponibles:</h4>
+                            <ul>
+                                <li><strong>Clasificación:</strong> Logistic Regression, Decision Tree, Random Forest, GBT, Naive Bayes</li>
+                                <li><strong>Regresión:</strong> Linear Regression, Decision Tree, Random Forest, GBT</li>
+                                <li><strong>Clustering:</strong> K-Means, LDA, Bisecting K-Means</li>
+                                <li><strong>Recomendación:</strong> ALS (Alternating Least Squares)</li>
+                            </ul>
+
+                            <div class="info-box">
+                                <strong>💡 Tip:</strong> Usa CrossValidator y TrainValidationSplit para optimizar hiperparámetros automáticamente.
+                            </div>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+
+                    <!-- Tema 3-4 -->
+                    <div class="content-detail" id="tema3-4">
+                        <h3>🕸️ GraphX</h3>
+                        <div class="content-body">
+                            <h4>¿Qué es GraphX?</h4>
+                            <p>GraphX es la API de Spark para procesamiento de gráficos y computación gráfica paralela. Proporciona una colección de algoritmos gráficos y una API flexible para manipular gráficos.</p>
+
+                            <h4>Creación de un grafo:</h4>
+                            <pre><code class="language-python">from pyspark import SparkContext
+from pyspark.graphx import Graph
+
+sc = SparkContext("local[*]", "GraphXApp")
+
+# Vértices (id, atributos)
+vertices = sc.parallelize([
+    (1, ("Alice", 28)),
+    (2, ("Bob", 32)),
+    (3, ("Charlie", 35)),
+    (4, ("Diana", 25))
+])
+
+# Aristas (src, dst, atributos)
+edges = sc.parallelize([
+    (1, 2, "amigo"),
+    (2, 3, "colega"),
+    (3, 4, "amigo"),
+    (4, 1, "familia")
+])
+
+# Crear grafo
+grafo = Graph(vertices, edges)
+
+# Operaciones básicas
+num_vertices = grafo.vertices.count()
+num_aristas = grafo.edges.count()
+
+# PageRank
+pagerank = grafo.pageRank(resetProbability=0.15, tol=0.01)
+pagerank.vertices.show()</code></pre>
+
+                            <h4>Algoritmos disponibles:</h4>
+                            <ul>
+                                <li><strong>PageRank:</strong> Mide la importancia de cada vértice.</li>
+                                <li><strong>Connected Components:</strong> Encuentra componentes conectados.</li>
+                                <li><strong>Triangle Count:</strong> Cuenta triángulos en el grafo.</li>
+                                <li><strong>Shortest Paths:</strong> Encuentra caminos más cortos.</li>
+                                <li><strong>Label Propagation:</strong> Algoritmo de clustering.</li>
+                            </ul>
+
+                            <h4>Operaciones de grafo:</h4>
+                            <pre><code class="language-python"># Subgrafo
+subgrafo = grafo.subgraph(
+    epred=lambda e: e.attr == "amigo"
+)
+
+# Reverse
+grafo_inverso = grafo.reverse()
+
+# Join con vertices
+grafo_unido = grafo.joinVertices(
+    vertices_nuevos,
+    lambda id, attr, nuevo: (attr[0], nuevo)
+)</code></pre>
+
+                            <div class="info-box">
+                                <strong>💡 Nota:</strong> GraphX está disponible principalmente en Scala. Para Python, considera usar GraphFrames.
+                            </div>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contenido" class="content">
+            <div class="container">
+                <h2>📚 Contenido del Curso</h2>
+
+                <div class="modules">
+                    <div class="module">
+                        <h3>Módulo 1: Fundamentos</h3>
+                        <ul>
+                            <li>Introducción a Apache Spark</li>
+                            <li>Spark vs Hadoop MapReduce</li>
+                            <li>RDDs y conceptos básicos</li>
+                            <li>Transformaciones y acciones</li>
+                        </ul>
+                        <a href="#temas" class="btn-module">Ir a temas →</a>
+                    </div>
+
+                    <div class="module">
+                        <h3>Módulo 2: Intermedio</h3>
+                        <ul>
+                            <li>DataFrames y Datasets</li>
+                            <li>Spark SQL</li>
+                            <li>Lectura/escritura de datos</li>
+                            <li>Optimización de queries</li>
+                        </ul>
+                        <a href="#temas" class="btn-module">Ir a temas →</a>
+                    </div>
+
+                    <div class="module">
+                        <h3>Módulo 3: Avanzado</h3>
+                        <ul>
+                            <li>Spark Streaming</li>
+                            <li>Structured Streaming</li>
+                            <li>MLlib (Machine Learning)</li>
+                            <li>GraphX</li>
+                        </ul>
+                        <a href="#temas" class="btn-module">Ir a temas →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejemplos" class="examples">
+            <div class="container">
+                <h2>📝 Ejemplos Rápidos</h2>
+
+                <div class="code-block">
+                    <h3>Inicialización PySpark</h3>
+                    <pre><code class="language-python">from pyspark.sql import SparkSession
+
+spark = SparkSession.builder \
+    .appName("Mi Aplicación") \
+    .master("local[*]") \
+    .getOrCreate()
+
+df = spark.read.csv("datos.csv", header=True, inferSchema=True)
+df.show()</code></pre>
+                </div>
+
+                <div class="code-block">
+                    <h3>Transformaciones y Acciones</h3>
+                    <pre><code class="language-python"># Transformaciones (lazy)
+filtered = df.filter(df.edad > 18)
+selected = df.select("nombre", "email")
+grouped = df.groupBy("ciudad").count()
+
+# Acciones (eager)
+count = df.count()
+primeros = df.head(5)
+total = df.agg({"salario": "sum"}).collect()</code></pre>
+                </div>
+
+                <div class="code-block">
+                    <h3>Spark SQL</h3>
+                    <pre><code class="language-python"># Registrar como tabla temporal
+df.createOrReplaceTempView("usuarios")
+
+# Ejecutar SQL
+resultado = spark.sql("""
+    SELECT ciudad, AVG(salario) as promedio
+    FROM usuarios
+    WHERE edad > 18
+    GROUP BY ciudad
+""")</code></pre>
+                </div>
+
+                <div class="code-block">
+                    <h3>MLlib Ejemplo</h3>
+                    <pre><code class="language-python">from pyspark.ml.classification import LogisticRegression
+from pyspark.ml.feature import VectorAssembler
+
+# Preparar features
+assembler = VectorAssembler(
+    inputCols=["edad", "ingresos"],
+    outputCol="features"
+)
+
+data = assembler.transform(df)
+
+# Entrenar modelo
+lr = LogisticRegression(featuresCol="features", labelCol="label")
+modelo = lr.fit(data)
+
+# Predecir
+predicciones = modelo.transform(data)</code></pre>
+                </div>
+
+                <div class="code-block">
+                    <h3>Structured Streaming</h3>
+                    <pre><code class="language-python"># Leer stream
+lines = spark.readStream \
+    .format("socket") \
+    .option("host", "localhost") \
+    .option("port", 9999) \
+    .load()
+
+# Procesar
+palabras = lines.selectExpr("explode(split(value, ' ')) as palabra")
+
+# Escribir stream
+query = palabras.writeStream \
+    .outputMode("complete") \
+    .format("console") \
+    .start()
+
+query.awaitTermination()</code></pre>
+                </div>
+
+                <div class="code-block">
+                    <h3>Comandos Esenciales</h3>
+                    <pre><code class="language-bash"># Iniciar Spark shell
+spark-shell
+
+# Iniciar PySpark
+pyspark
+
+# Ejecutar aplicación
+spark-submit --master local[4] app.py
+
+# Ver logs
+$SPARK_HOME/logs/
+
+# Spark submit con opciones
+spark-submit \
+  --class com.example.Main \
+  --master yarn \
+  --deploy-mode cluster \
+  app.jar</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="recursos" class="resources">
+            <div class="container">
+                <h2>📖 Recursos Adicionales</h2>
+
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Documentación Oficial</h4>
+                        <ul>
+                            <li><a href="https://spark.apache.org/docs/latest/" target="_blank">Apache Spark Documentation</a></li>
+                            <li><a href="https://spark.apache.org/docs/latest/api/python/" target="_blank">PySpark API</a></li>
+                            <li><a href="https://academy.databricks.com/" target="_blank">Databricks Learning</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Herramientas</h4>
+                        <ul>
+                            <li>Databricks Community - IDE cloud gratuito</li>
+                            <li>Apache Zeppelin - Notebook web</li>
+                            <li>Jupyter + Spark - Notebook local</li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Comunidades</h4>
+                        <ul>
+                            <li><a href="https://spark.apache.org/community.html" target="_blank">Spark Community</a></li>
+                            <li>Stack Overflow - Apache Spark</li>
+                            <li>Reddit r/spark</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact">
+            <div class="container">
+                <h2>👨‍💻 Desarrollado por Isaac Esteban Haro Torres</h2>
+                <p class="contact-title">Ingeniero en Sistemas · Full Stack · Automatización · Data</p>
+
+                <div class="contact-info">
+                    <p>📧 Email: <a href="mailto:zackharo1@gmail.com">zackharo1@gmail.com</a></p>
+                    <p>📱 WhatsApp: 098805517</p>
+                    <p>💻 GitHub: <a href="https://github.com/ieharo1" target="_blank">github.com/ieharo1</a></p>
+                    <p>🌐 Portafolio: <a href="https://ieharo1.github.io/portafolio-isaac.haro/" target="_blank">ieharo1.github.io/portafolio-isaac.haro/</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Isaac Esteban Haro Torres - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
