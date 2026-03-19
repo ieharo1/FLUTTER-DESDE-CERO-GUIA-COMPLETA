@@ -1,18 +1,18 @@
-# ⚡ APACHE SPARK DESDE CERO - GUÍA COMPLETA
+# 🔥 FLUTTER DESDE CERO - GUÍA COMPLETA
 
-**Apache Spark desde Cero** es un sitio educativo completo diseñado para enseñar Spark desde los fundamentos hasta conceptos avanzados, con explicaciones claras, ejemplos prácticos y código listo para usar.
+**Flutter desde Cero** es un sitio educativo completo diseñado para enseñar Flutter desde los fundamentos hasta la creación de aplicaciones móviles profesionales, con explicaciones claras, ejemplos prácticos y código listo para usar.
 
-> *"Apache Spark is a unified analytics engine for large-scale data processing."*
+> *"Flutter es el framework de Google para crear aplicaciones hermosas y de alto rendimiento para iOS y Android."*
 
 ---
 
 ## 🎯 ¿Qué es este Proyecto?
 
-Este proyecto proporciona un recurso educativo gratuito para aprender Apache Spark, incluyendo:
+Este proyecto proporciona un recurso educativo gratuito para aprender Flutter, incluyendo:
 
 - **Documentación completa** de cada tema
 - **Ejemplos de código** listos para ejecutar
-- **Ejercicios prácticos** para reforzar el aprendizaje
+- **Guías paso a paso** para configuración
 - **Sitio web educativo** con navegación intuitiva
 
 ---
@@ -21,56 +21,76 @@ Este proyecto proporciona un recurso educativo gratuito para aprender Apache Spa
 
 ### Módulo 1: Fundamentos
 
-1. **Introducción**
-   - ¿Qué es Apache Spark?
-   - Spark vs Hadoop MapReduce
-   - Ecosistema Spark
+1. **¿Qué es Flutter?**
+   - Introducción al framework
+   - Historia y versiones
+   - Widgets y arquitectura
 
 2. **Instalación**
-   - Spark standalone
-   - Spark en cluster
-   - Databricks Community
-   - PySpark setup
+   - Flutter SDK
+   - Android Studio
+   - Configuración del entorno
 
-3. **Conceptos básicos**
-   - RDDs (Resilient Distributed Datasets)
-   - Transformaciones y acciones
-   - Lazy evaluation
-   - SparkContext y SparkSession
+3. **Widget Hola Mundo**
+   - Estructura básica
+   - MaterialApp y Scaffold
+   - Primer widget
+
+4. **Widgets Básicos**
+   - Text, Container, Row, Column
+   - Padding y Margin
+   - Images y Icons
 
 ### Módulo 2: Intermedio
 
-4. **Ejemplos prácticos**
-   - DataFrames y Datasets
-   - Spark SQL
-   - Lectura/escritura de datos
-   - UDFs (User Defined Functions)
+5. **Estado y setState**
+   - StatefulWidget
+   - Gestión de estado local
+   - Ciclo de vida
 
-5. **Buenas prácticas**
-   - Optimización de queries
-   - Partitioning y bucketing
-   - Caching y persistencia
-   - Manejo de memoria
+6. **Navegación**
+   - Navigator.push
+   - Pasar datos entre pantallas
+   - Rutas con nombre
+
+7. **ListView y GridView**
+   - Listas simples
+   - ListView.builder
+   - GridView
+
+8. **Formularios**
+   - TextFormField
+   - Validaciones
+   - GlobalKey y FormState
 
 ### Módulo 3: Avanzado
 
-6. **Casos reales**
-   - Spark Streaming
-   - Structured Streaming
-   - MLlib (Machine Learning)
-   - GraphX
+9. **Provider y Estado**
+   - ChangeNotifier
+   - Provider y Consumer
+   - Estado global
 
-7. **Proyecto final**
-   - Pipeline de datos completo
-   - Deploy en cluster
-   - Monitoreo con Spark UI
+10. **Firebase**
+    - Firebase Core
+    - Cloud Firestore
+    - Authentication
+
+11. **APIs y HTTP**
+    - Paquete http
+    - GET y POST
+    - Manejo de errores
+
+12. **Publicar en Stores**
+    - Google Play Store
+    - Apple App Store
+    - Build y firma
 
 ---
 
 ## 🗂️ Estructura del Proyecto
 
 ```
-MySQL-/
+FLUTTER-DESDE-CERO-GUIA-COMPLETA/
 ├── index.html          # Página principal
 ├── css/
 │   └── styles.css      # Estilos del sitio
@@ -89,107 +109,35 @@ MySQL-/
 2. Navega por las secciones del curso
 3. Haz clic en los temas para ver la documentación detallada
 
-### Opción 2: Ejecutar los Ejemplos
+### Opción 2: Practicar con Flutter
 
-1. Instala Spark o usa Databricks
-2. Crea script .py o .scala
-3. Ejecuta con `spark-submit`
-
-### Requisitos
-
-- Java 8 o superior
-- Python 3.7+ (para PySpark)
-- 4GB RAM mínimo
+1. Instala Flutter SDK desde flutter.dev
+2. Instala Android Studio
+3. Crea proyecto: `flutter create mi_app`
+4. Practica los conceptos del curso
 
 ---
 
-## 📝 Ejemplos Rápidos
+## 📝 Comandos Principales
 
-### Inicialización PySpark
+### Flutter CLI
 
-```python
-from pyspark.sql import SparkSession
-
-spark = SparkSession.builder \
-    .appName("Mi Aplicación") \
-    .master("local[*]") \
-    .getOrCreate()
-
-df = spark.read.csv("datos.csv", header=True, inferSchema=True)
-df.show()
+```bash
+flutter --version        # Ver versión
+flutter doctor           # Diagnosticar entorno
+flutter create mi_app    # Crear proyecto
+flutter run              # Ejecutar
+flutter build apk        # Build debug APK
+flutter build appbundle  # Build release AAB
 ```
 
-### Transformaciones y Acciones
+### Dart
 
-```python
-# Transformaciones (lazy)
-filtered = df.filter(df.edad > 18)
-selected = df.select("nombre", "email")
-grouped = df.groupBy("ciudad").count()
-
-# Acciones (eager)
-count = df.count()
-primeros = df.head(5)
-total = df.agg({"salario": "sum"}).collect()
-```
-
-### Spark SQL
-
-```python
-# Registrar como tabla temporal
-df.createOrReplaceTempView("usuarios")
-
-# Ejecutar SQL
-resultado = spark.sql("""
-    SELECT ciudad, AVG(salario) as promedio
-    FROM usuarios
-    WHERE edad > 18
-    GROUP BY ciudad
-""")
-```
-
-### MLlib Ejemplo
-
-```python
-from pyspark.ml.classification import LogisticRegression
-from pyspark.ml.feature import VectorAssembler
-
-# Preparar features
-assembler = VectorAssembler(
-    inputCols=["edad", "ingresos"],
-    outputCol="features"
-)
-
-data = assembler.transform(df)
-
-# Entrenar modelo
-lr = LogisticRegression(featuresCol="features", labelCol="label")
-modelo = lr.fit(data)
-
-# Predecir
-predicciones = modelo.transform(data)
-```
-
-### Structured Streaming
-
-```python
-# Leer stream
-lines = spark.readStream \
-    .format("socket") \
-    .option("host", "localhost") \
-    .option("port", 9999) \
-    .load()
-
-# Procesar
-palabras = lines.selectExpr("explode(split(value, ' ')) as palabra")
-
-# Escribir stream
-query = palabras.writeStream \
-    .outputMode("complete") \
-    .format("console") \
-    .start()
-
-query.awaitTermination()
+```bash
+dart --version           # Ver versión de Dart
+dart run                 # Ejecutar Dart
+pub get                  # Obtener dependencias
+pub add package_name     # Agregar paquete
 ```
 
 ---
@@ -199,41 +147,30 @@ query.awaitTermination()
 ### 1. Leer la Teoría
 Cada tema comienza con una explicación clara del concepto.
 
-### 2. Ver Ejemplos
+### 2. Ver los Ejemplos
 Los ejemplos de código muestran la aplicación práctica.
 
 ### 3. Practicar
-Los ejercicios te permiten aplicar lo aprendido.
+Crea tu propia app y experimenta con los widgets.
 
-### 4. Experimentar
-Modifica los ejemplos para entender cómo funcionan.
+### 4. Construir
+Desarrolla una aplicación completa integrando todo lo aprendido.
 
 ---
 
-## 🔧 Comandos Esenciales
+## 🔧 Herramientas Recomendadas
 
-### Terminal/Consola
+### Editores
 
-```bash
-# Iniciar Spark shell
-spark-shell
+- **VS Code** - Con extensión Flutter
+- **Android Studio** - IDE oficial
+- **IntelliJ IDEA** - Soporte Flutter
 
-# Iniciar PySpark
-pyspark
+### Extensiones VS Code
 
-# Ejecutar aplicación
-spark-submit --master local[4] app.py
-
-# Ver logs
-$SPARK_HOME/logs/
-
-# Spark submit con opciones
-spark-submit \
-  --class com.example.Main \
-  --master yarn \
-  --deploy-mode cluster \
-  app.jar
-```
+- Flutter
+- Dart
+- Awesome Flutter Snippets
 
 ---
 
@@ -241,53 +178,25 @@ spark-submit \
 
 ### Documentación Oficial
 
-- [Apache Spark Documentation](https://spark.apache.org/docs/latest/)
-- [PySpark API](https://spark.apache.org/docs/latest/api/python/)
-- [Databricks Learning](https://academy.databricks.com/)
-
-### Herramientas Recomendadas
-
-- **Databricks Community** - IDE cloud gratuito
-- **Apache Zeppelin** - Notebook web
-- **Jupyter + Spark** - Notebook local
+- [Flutter Documentation](https://flutter.dev/docs)
+- [Dart Language](https://dart.dev/guides)
+- [Pub.dev](https://pub.dev/) - Paquetes
 
 ### Comunidades
 
-- [Spark Community](https://spark.apache.org/community.html)
-- [Stack Overflow - Apache Spark](https://stackoverflow.com/questions/tagged/apache-spark)
-- [Reddit r/spark](https://www.reddit.com/r/spark/)
+- [Flutter Community](https://flutter.dev/community)
+- [Reddit r/FlutterDev](https://reddit.com/r/FlutterDev)
+- [Discord Flutter](https://discord.gg/flutter)
 
 ---
 
 ## 💡 Consejos para Principiantes
 
-1. **Entiende lazy evaluation**: Las transformaciones no se ejecutan hasta una acción.
-2. **Usa DataFrames**: Son más optimizados que RDDs.
-3. **Cachea inteligentemente**: Solo datos reutilizados.
-4. **Partitiona correctamente**: Evita data skew.
-5. **Monitoriza con Spark UI**: Es tu mejor amigo.
-
----
-
-## ⚠️ Mejores Prácticas
-
-### Rendimiento
-
-- Usa broadcast joins para tablas pequeñas
-- Evita collect() en datos grandes
-- Reparticiona solo cuando sea necesario
-
-### Memoria
-
-- Ajusta executor memory según necesidad
-- Usa serialize eficiente (Kryo)
-- Limpia cache cuando no se use
-
-### Producción
-
-- Usa cluster mode en producción
-- Implementa checkpointing en streaming
-- Configura log levels apropiadamente
+1. **Aprende Dart** - El lenguaje de Flutter
+2. **Practica widgets** - Son la base de todo
+3. **Usa Hot Reload** - Ahorra tiempo de desarrollo
+4. **Revisa pub.dev** - Miles de paquetes disponibles
+5. **Sigue las convenciones** - Widgets, Stateless y Stateful
 
 ---
 
@@ -295,21 +204,24 @@ spark-submit \
 
 ### Nivel Básico
 
-1. Carga y explora un dataset CSV
-2. Filtra y transforma datos
-3. Agrega datos por categoría
+1. Crear un widget simple con texto e imagen
+2. Hacer un contador con StatefulWidget
+3. Navegar entre dos pantallas
+4. Mostrar una lista de elementos
 
 ### Nivel Intermedio
 
-1. Pipeline ETL completo
-2. Modelo de ML con MLlib
-3. Join de múltiples fuentes
+1. Formulario con validaciones
+2. Usar Provider para estado global
+3. Consumir una API REST
+4. Grid de productos
 
 ### Nivel Avanzado
 
-1. Streaming en tiempo real
-2. Procesamiento de logs masivos
-3. Graph analysis con GraphX
+1. App completa con Firebase
+2. SQLite local con sqflite
+3. Animaciones personalizadas
+4. Publicar en Play Store
 
 ---
 
